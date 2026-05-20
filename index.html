@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>1V1 BABI EVENT — Édition 2 · Fais Toi Bognan</title>
+<meta name="description" content="1V1 BABI EVENT Édition 2 — La compétition sportive et culturelle urbaine d'Abidjan. Foot · Basket · Draft des Communes. Juillet–Août 2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #050B1F;
+    --navy: #0B1F4D;
+    --navy-mid: #142B5C;
+    --electric: #3DC3FF;
+    --electric-bright: #5FD4FF;
+    --cream: #F5F1E8;
+    --white: #FFFFFF;
+    --champagne: #E6D3A3;
+    --danger: #FF4D4D;
+    --success: #4ADE80;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Subtle noise grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+
+  .display, h1, h2, h3 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  a { color: inherit; text-decoration: none; }
+
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  img { max-width: 100%; display: block; }
+
+  /* ═══════════════ NAV ═══════════════ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(5, 11, 31, 0.75);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(245, 241, 232, 0.08);
+  }
+
+  .logo {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    color: var(--white);
+  }
+
+  .logo span { color: var(--electric); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--electric); }
+
+  .nav-cta {
+    background: var(--electric);
+    color: var(--ink);
+    padding: 10px 18px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+  }
+
+  .nav-cta:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--cream); }
+
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { gap: 14px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+
+  /* ═══════════════ HERO ═══════════════ */
+  .hero {
+    min-height: 100vh;
+    padding: 120px 32px 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(61, 195, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(11, 31, 77, 0.6) 0%, transparent 60%),
+      linear-gradient(135deg, var(--ink) 0%, var(--navy) 100%);
+  }
+
+  /* Tribal pattern overlay */
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233DC3FF' fill-opacity='1'%3E%3Cpath d='M0 0h20v20H0zM40 0h20v20H40zM20 20h20v20H20zM60 20h20v20H60zM0 40h20v20H0zM40 40h20v20H40zM20 60h20v20H20zM60 60h20v20H60z' opacity='0.3'/%3E%3Cpath d='M10 10l10 10-10 10-10-10zM50 10l10 10-10 10-10-10zM30 30l10 10-10 10-10-10zM70 30l10 10-10 10-10-10z' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    z-index: 2;
+  }
+
+  .hero-meta-block {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  .hero-meta-block .label { color: var(--electric); display: block; margin-bottom: 4px; }
+
+  .hero-title {
+    z-index: 2;
+  }
+
+  .hero-edition {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--electric);
+    margin-bottom: 24px;
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid var(--electric);
+  }
+
+  .hero h1 {
+    font-size: clamp(64px, 16vw, 240px);
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .hero h1 .line2 {
+    display: block;
+    color: var(--electric);
+    -webkit-text-stroke: 2px var(--electric);
+    color: transparent;
+  }
+
+  .hero-tagline {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(15px, 1.6vw, 19px);
+    max-width: 580px;
+    color: var(--cream);
+    opacity: 0.85;
+    margin-top: 32px;
+    margin-bottom: 40px;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    z-index: 2;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 18px 32px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-primary {
+    background: var(--electric);
+    color: var(--ink);
+  }
+  .btn-primary:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 var(--cream);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--cream);
+    border: 2px solid var(--cream);
+  }
+  .btn-secondary:hover {
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  .arrow { font-size: 24px; line-height: 1; }
+
+  /* ═══════════════ SECTIONS ═══════════════ */
+  section {
+    padding: 100px 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--electric);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(48px, 8vw, 96px);
+    color: var(--white);
+    margin-bottom: 40px;
+    max-width: 1000px;
+  }
+
+  .section-title .accent { color: var(--electric); }
+
+  /* ═══════════════ CONCEPT ═══════════════ */
+  #concept {
+    background: var(--ink);
+    border-top: 1px solid rgba(245, 241, 232, 0.08);
+  }
+
+  .concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .concept-text p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--cream);
+    opacity: 0.85;
+  }
+
+  .concept-text strong { color: var(--electric); font-weight: 700; }
+
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pillar {
+    border: 1px solid rgba(245, 241, 232, 0.15);
+    padding: 24px 28px;
+    transition: all 0.3s ease;
+    background: rgba(11, 31, 77, 0.3);
+  }
+
+  .pillar:hover {
+    border-color: var(--electric);
+    background: rgba(61, 195, 255, 0.05);
+  }
+
+  .pillar-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--electric);
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+
+  .pillar-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .pillar-desc {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 900px) {
+    .concept-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ═══════════════ FORMAT ═══════════════ */
+  #format {
+    background: linear-gradient(180deg, var(--ink) 0%, var(--navy) 100%);
+    padding: 120px 32px;
+  }
+
+  .format-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .format-step {
+    position: relative;
+    padding: 32px 24px;
+    background: rgba(5, 11, 31, 0.6);
+    border-top: 3px solid var(--electric);
+    transition: transform 0.3s;
+  }
+
+  .format-step:hover { transform: translateY(-8px); }
+
+  .format-step .step-num {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 80px;
+    color: var(--electric);
+    line-height: 1;
+    opacity: 0.4;
+    margin-bottom: 16px;
+  }
+
+  .format-step h3 {
+    font-size: 28px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .format-step p {
+    font-size: 14px;
+    color: var(--cream);
+    opacity: 0.7;
+    line-height: 1.6;
+  }
+
+  .format-step .meta {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(245, 241, 232, 0.1);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--electric);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .format-timeline { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .format-timeline { grid-template-columns: 1fr; }
+  }
+
+  /* ═══════════════ COMMUNES ═══════════════ */
+  #communes {
+    background: var(--ink);
+    padding: 100px 32px;
+  }
+
+  .communes-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 60px auto 0;
+  }
+
+  .commune-card {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--ink) 100%);
+    border: 1px solid rgba(61, 195, 255, 0.2);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .commune-card:hover {
+    border-color: var(--electric);
+    transform: translateY(-4px);
+  }
+
+  .commune-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(61, 195, 255, 0.15) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .commune-card:hover::before { opacity: 1; }
+
+  .commune-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--electric);
+  }
+
+  .commune-name {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: clamp(40px, 6vw, 64px);
+    color: var(--white);
+    line-height: 0.9;
+    z-index: 2;
+    position: relative;
+  }
+
+  .commune-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--cream);
+    opacity: 0.6;
+    text-transform: uppercase;
+    z-index: 2;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .communes-row { grid-template-columns: 1fr; }
+    .commune-card { aspect-ratio: 16/9; }
+  }
+
+  /* ═══════════════ INSCRIPTIONS ═══════════════ */
+  #inscriptions {
+    background: var(--navy);
+    padding: 120px 32px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 50px 0 0;
+    border-bottom: 1px solid rgba(245, 241, 232, 0.15);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tab {
+    padding: 16px 24px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.5;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tab:hover { opacity: 0.9; }
+
+  .tab.active {
+    opacity: 1;
+    color: var(--white);
+    border-bottom-color: var(--electric);
+  }
+
+  .tab-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    background: rgba(61, 195, 255, 0.15);
+    color: var(--electric);
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+  }
+
+  .tab-badge.paid { background: rgba(230, 211, 163, 0.15); color: var(--champagne); }
+
+  .form-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 0;
+  }
+
+  .form-panel { display: none; }
+  .form-panel.active { display: block; animation: fadeIn 0.4s ease; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .form-intro {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(245, 241, 232, 0.1);
+  }
+
+  .form-intro h3 {
+    font-size: clamp(36px, 5vw, 56px);
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .form-intro p {
+    font-size: 15px;
+    opacity: 0.75;
+    line-height: 1.6;
+    max-width: 550px;
+  }
+
+  .price-tag {
+    text-align: right;
+  }
+
+  .price-tag .price {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 80px);
+    color: var(--electric);
+    line-height: 1;
+  }
+
+  .price-tag .unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--cream);
+    opacity: 0.6;
+    text-transform: uppercase;
+  }
+
+  .price-tag .free {
+    color: var(--success);
+  }
+
+  @media (max-width: 768px) {
+    .form-intro { grid-template-columns: 1fr; }
+    .price-tag { text-align: left; }
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .form-grid .full { grid-column: 1 / -1; }
+
+  @media (max-width: 700px) {
+    .form-grid { grid-template-columns: 1fr; }
+  }
+
+  .field label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--electric);
+    margin-bottom: 8px;
+  }
+
+  .field label .req { color: var(--danger); }
+
+  .field input, .field select, .field textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(245, 241, 232, 0.25);
+    padding: 12px 0;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    color: var(--white);
+    transition: border-color 0.2s;
+    border-radius: 0;
+  }
+
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-bottom-color: var(--electric);
+  }
+
+  .field select option { background: var(--ink); color: var(--white); }
+
+  .field textarea { resize: vertical; min-height: 80px; }
+
+  .form-actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .submit-btn {
+    background: var(--electric);
+    color: var(--ink);
+    padding: 20px 40px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .submit-btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 var(--cream);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .form-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    opacity: 0.6;
+    letter-spacing: 0.05em;
+  }
+
+  .success-msg {
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid var(--success);
+    padding: 24px;
+    margin-bottom: 30px;
+    display: none;
+  }
+
+  .success-msg.show { display: block; animation: fadeIn 0.4s; }
+
+  .success-msg .title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--success);
+    margin-bottom: 8px;
+  }
+
+  .success-msg p { font-size: 14px; opacity: 0.9; }
+
+  /* ═══════════════ FINALE / TICKETS ═══════════════ */
+  #finale {
+    background: var(--ink);
+    padding: 120px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #finale::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(61, 195, 255, 0.12) 0%, transparent 60%);
+    z-index: 0;
+  }
+
+  .finale-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .finale-title {
+    font-size: clamp(56px, 12vw, 160px);
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .finale-title .accent {
+    -webkit-text-stroke: 2px var(--electric);
+    color: transparent;
+  }
+
+  .finale-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+
+  .finale-meta-block {
+    text-align: center;
+  }
+
+  .finale-meta-block .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--electric);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .finale-meta-block .value {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--white);
+  }
+
+  .tikerama-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--electric);
+    color: var(--ink);
+    padding: 24px 48px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 20px;
+    transition: all 0.2s;
+  }
+
+  .tikerama-btn:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 var(--cream);
+  }
+
+  /* ═══════════════ FOOTER ═══════════════ */
+  footer {
+    background: var(--ink);
+    padding: 80px 32px 40px;
+    border-top: 1px solid rgba(245, 241, 232, 0.08);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 50px;
+    max-width: 1400px;
+    margin: 0 auto 60px;
+  }
+
+  .footer-brand .logo {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+    opacity: 0.6;
+    max-width: 320px;
+    line-height: 1.6;
+  }
+
+  .footer-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--electric);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+
+  .footer-col li:hover { opacity: 1; color: var(--electric); cursor: pointer; }
+
+  .footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(245, 241, 232, 0.08);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    opacity: 0.5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 500px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  }
+
+  /* ═══════════════ DECORATIVE ═══════════════ */
+  .mark {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--electric);
+    opacity: 0.4;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">W·BABI <span>EVENT</span></div>
+  <div class="nav-links">
+    <a href="#concept">Concept</a>
+    <a href="#format">Format</a>
+    <a href="#communes">Communes</a>
+    <a href="#inscriptions">Inscriptions</a>
+    <a href="#inscriptions" class="nav-cta">S'inscrire</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+
+  <div class="hero-meta">
+    <div class="hero-meta-block">
+      <span class="label">↳ Édition</span>
+      02 / 2026
+    </div>
+    <div class="hero-meta-block" style="text-align:right">
+      <span class="label">↳ Lieu</span>
+      Abidjan · Côte d'Ivoire
+    </div>
+  </div>
+
+  <div class="hero-title">
+    <span class="hero-edition">— 1V1 BABI EVENT · ÉDITION 02</span>
+    <h1>
+      Fais Toi
+      <span class="line2">Bognan.</span>
+    </h1>
+    <p class="hero-tagline">
+      La compétition sportive et culturelle urbaine d'Abidjan. Football, basketball, format individuel.
+      Trois communes, une scène, un seul gagnant par discipline. Juillet — Août 2026.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#inscriptions" class="btn-primary">S'inscrire <span class="arrow">→</span></a>
+      <a href="#concept" class="btn-secondary">Le concept</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept">
+  <div class="section-num">01 — Le concept</div>
+  <h2 class="section-title">Un duel. <span class="accent">Un quartier.</span> Le respect.</h2>
+  <div class="concept-grid">
+    <div class="concept-text">
+      <p>
+        Le 1V1 BABI EVENT, c'est une compétition <strong>100% individuelle</strong>. En football comme en basket, les joueurs s'affrontent en duel, un contre un. Pas d'équipe pour se cacher derrière — juste la technique, la créativité, et la personnalité de chacun.
+      </p>
+      <p>
+        Chaque joueur représente son quartier, sa commune. Il ne joue pas seulement pour lui-même : il défend son territoire, ses couleurs, son identité. Le slogan le dit clair — <strong>« Bognan »</strong>, c'est le respect en nouchi, celui qu'on gagne sur le terrain.
+      </p>
+      <p>
+        Au-delà du sport, c'est un événement culturel. Musique, DJ, MC, artistes, danse, mode urbaine. Le terrain devient une scène où le talent et la culture des communes d'Abidjan se rencontrent.
+      </p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Sport</div>
+        <div class="pillar-desc">Foot &amp; basket en 1v1, format individuel pur.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">Culture</div>
+        <div class="pillar-desc">Musique, mode urbaine, créativité ivoirienne.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Communes</div>
+        <div class="pillar-desc">3 communes représentées, identités défendues.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <div class="pillar-title">Spectacle</div>
+        <div class="pillar-desc">2 000 à 3 000 spectateurs attendus en finale.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section id="format">
+  <div class="section-num">02 — Format</div>
+  <h2 class="section-title">Quatre étapes. <span class="accent">Une trajectoire.</span></h2>
+
+  <div class="format-timeline">
+    <div class="format-step">
+      <div class="step-num">01</div>
+      <h3>Draft des Communes</h3>
+      <p>Tournée de sélection à Cocody, Bingerville et Yopougon. Les meilleurs talents locaux sont identifiés pour la suite.</p>
+      <div class="meta">↳ Inscription gratuite</div>
+    </div>
+    <div class="format-step">
+      <div class="step-num">02</div>
+      <h3>Foot Day</h3>
+      <p>Journée consacrée aux duels 1v1 football. Les joueurs sélectionnés s'affrontent jusqu'à désigner les finalistes.</p>
+      <div class="meta">↳ Inscription payante</div>
+    </div>
+    <div class="format-step">
+      <div class="step-num">03</div>
+      <h3>Basket Day</h3>
+      <p>Même intensité, même format — mais sur le terrain de basket. Duels rapides, spectaculaires, sans pause.</p>
+      <div class="meta">↳ Inscription payante</div>
+    </div>
+    <div class="format-step">
+      <div class="step-num">04</div>
+      <h3>Grande Finale</h3>
+      <p>Centre Sportif Ivoiro-Coréen. Les meilleurs de chaque discipline s'affrontent. Public, ambiance, distinctions.</p>
+      <div class="meta">↳ Billetterie Tikerama</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNES -->
+<section id="communes">
+  <div class="section-num">03 — Les communes</div>
+  <h2 class="section-title">Trois territoires. <span class="accent">Trois identités.</span></h2>
+
+  <div class="communes-row">
+    <div class="commune-card">
+      <div>
+        <div class="commune-num">→ Commune 01</div>
+      </div>
+      <div class="commune-name">Cocody</div>
+      <div class="commune-meta">Foot &amp; Basket · DDC Étape 1</div>
+    </div>
+    <div class="commune-card">
+      <div>
+        <div class="commune-num">→ Commune 02</div>
+      </div>
+      <div class="commune-name">Bingerville</div>
+      <div class="commune-meta">Foot &amp; Basket · DDC Étape 2</div>
+    </div>
+    <div class="commune-card">
+      <div>
+        <div class="commune-num">→ Commune 03</div>
+      </div>
+      <div class="commune-name">Yopougon</div>
+      <div class="commune-meta">Foot &amp; Basket · DDC Étape 3 — Finale tour</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPTIONS -->
+<section id="inscriptions">
+  <div class="section-num">04 — Inscriptions</div>
+  <h2 class="section-title">Choisis ta scène. <span class="accent">Pose ton nom.</span></h2>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="draft">
+      Draft des Communes
+      <span class="tab-badge">Gratuit</span>
+    </button>
+    <button class="tab" data-tab="foot">
+      Foot Day
+      <span class="tab-badge paid">Payant</span>
+    </button>
+    <button class="tab" data-tab="basket">
+      Basket Day
+      <span class="tab-badge paid">Payant</span>
+    </button>
+    <button class="tab" data-tab="stand">
+      Demande de Stand
+    </button>
+  </div>
+
+  <div class="form-container">
+
+    <!-- DRAFT FORM -->
+    <div class="form-panel active" id="panel-draft">
+      <div class="form-intro">
+        <div>
+          <h3>Draft des Communes</h3>
+          <p>Inscris-toi pour la tournée de sélection dans ton quartier. Sois sur place, joue ton 1v1, montre ce que tu vaux. Les meilleurs talents sont retenus pour le Foot Day ou le Basket Day.</p>
+        </div>
+        <div class="price-tag">
+          <div class="price free">FREE</div>
+          <div class="unit">Inscription gratuite</div>
+        </div>
+      </div>
+
+      <div class="success-msg" id="success-draft">
+        <div class="title">✓ Bognan reçu.</div>
+        <p>Ton inscription à la Draft est enregistrée. Tu recevras les détails du lieu et de l'heure par WhatsApp avant l'étape de ta commune.</p>
+      </div>
+
+      <form id="form-draft">
+        <div class="form-grid">
+          <div class="field">
+            <label>Prénom <span class="req">*</span></label>
+            <input type="text" name="prenom" required />
+          </div>
+          <div class="field">
+            <label>Nom <span class="req">*</span></label>
+            <input type="text" name="nom" required />
+          </div>
+          <div class="field">
+            <label>Date de naissance <span class="req">*</span></label>
+            <input type="date" name="dob" required />
+          </div>
+          <div class="field">
+            <label>Genre <span class="req">*</span></label>
+            <select name="genre" required>
+              <option value="">Sélectionner</option>
+              <option>Homme</option>
+              <option>Femme</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Numéro WhatsApp <span class="req">*</span></label>
+            <input type="tel" name="whatsapp" placeholder="+225 ..." required />
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" name="email" />
+          </div>
+          <div class="field">
+            <label>Discipline <span class="req">*</span></label>
+            <select name="discipline" required>
+              <option value="">Sélectionner</option>
+              <option>Football</option>
+              <option>Basketball</option>
+              <option>Les deux</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Commune où tu joues <span class="req">*</span></label>
+            <select name="commune" required>
+              <option value="">Sélectionner</option>
+              <option>Cocody</option>
+              <option>Bingerville</option>
+              <option>Yopougon</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label>Quartier précis</label>
+            <input type="text" name="quartier" placeholder="ex. Angré 7e tranche, Riviera Palmeraie..." />
+          </div>
+          <div class="field full">
+            <label>Niveau / Expérience</label>
+            <select name="niveau">
+              <option value="">Sélectionner</option>
+              <option>Débutant — je joue pour le plaisir</option>
+              <option>Intermédiaire — je joue régulièrement</option>
+              <option>Avancé — je joue en club / niveau compétition</option>
+              <option>Pro / Semi-pro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">Valider mon inscription →</button>
+          <span class="form-note">// Tu recevras une confirmation WhatsApp sous 48h</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- FOOT FORM -->
+    <div class="form-panel" id="panel-foot">
+      <div class="form-intro">
+        <div>
+          <h3>Foot Day · 1v1</h3>
+          <p>Inscription directe au Foot Day, sans passer par la Draft. Ouvert aux joueurs confirmés qui veulent jouer le tournoi principal. Cagnotte, distinctions MVP, visibilité réseaux.</p>
+        </div>
+        <div class="price-tag">
+          <div class="price">5 000</div>
+          <div class="unit">FCFA / inscription</div>
+        </div>
+      </div>
+
+      <div class="success-msg" id="success-foot">
+        <div class="title">✓ Inscription Foot Day enregistrée.</div>
+        <p>Un membre d'ALS Events te contacte sous 48h pour finaliser le paiement (Wave / Orange Money) et te transmettre les modalités.</p>
+      </div>
+
+      <form id="form-foot">
+        <div class="form-grid">
+          <div class="field">
+            <label>Prénom <span class="req">*</span></label>
+            <input type="text" name="prenom" required />
+          </div>
+          <div class="field">
+            <label>Nom <span class="req">*</span></label>
+            <input type="text" name="nom" required />
+          </div>
+          <div class="field">
+            <label>Date de naissance <span class="req">*</span></label>
+            <input type="date" name="dob" required />
+          </div>
+          <div class="field">
+            <label>Genre <span class="req">*</span></label>
+            <select name="genre" required>
+              <option value="">Sélectionner</option>
+              <option>Homme</option>
+              <option>Femme</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Numéro WhatsApp <span class="req">*</span></label>
+            <input type="tel" name="whatsapp" placeholder="+225 ..." required />
+          </div>
+          <div class="field">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" required />
+          </div>
+          <div class="field">
+            <label>Commune représentée <span class="req">*</span></label>
+            <select name="commune" required>
+              <option value="">Sélectionner</option>
+              <option>Cocody</option>
+              <option>Bingerville</option>
+              <option>Yopougon</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Niveau <span class="req">*</span></label>
+            <select name="niveau" required>
+              <option value="">Sélectionner</option>
+              <option>Intermédiaire</option>
+              <option>Avancé</option>
+              <option>Semi-pro / Pro</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label>Club actuel (si applicable)</label>
+            <input type="text" name="club" />
+          </div>
+          <div class="field full">
+            <label>Mode de paiement préféré <span class="req">*</span></label>
+            <select name="paiement" required>
+              <option value="">Sélectionner</option>
+              <option>Wave CI</option>
+              <option>Orange Money</option>
+              <option>MTN Mobile Money</option>
+              <option>Espèces sur place</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">Valider mon inscription →</button>
+          <span class="form-note">// Frais : 5 000 FCFA · contact sous 48h pour le paiement</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- BASKET FORM -->
+    <div class="form-panel" id="panel-basket">
+      <div class="form-intro">
+        <div>
+          <h3>Basket Day · 1v1</h3>
+          <p>Inscription directe au Basket Day. Format individuel pur, terrain dédié. Pour les ballers qui veulent défendre leur commune avec leur dribble, leur shoot, leur attitude.</p>
+        </div>
+        <div class="price-tag">
+          <div class="price">5 000</div>
+          <div class="unit">FCFA / inscription</div>
+        </div>
+      </div>
+
+      <div class="success-msg" id="success-basket">
+        <div class="title">✓ Inscription Basket Day enregistrée.</div>
+        <p>Un membre d'ALS Events te contacte sous 48h pour finaliser le paiement et te transmettre les modalités.</p>
+      </div>
+
+      <form id="form-basket">
+        <div class="form-grid">
+          <div class="field">
+            <label>Prénom <span class="req">*</span></label>
+            <input type="text" name="prenom" required />
+          </div>
+          <div class="field">
+            <label>Nom <span class="req">*</span></label>
+            <input type="text" name="nom" required />
+          </div>
+          <div class="field">
+            <label>Date de naissance <span class="req">*</span></label>
+            <input type="date" name="dob" required />
+          </div>
+          <div class="field">
+            <label>Genre <span class="req">*</span></label>
+            <select name="genre" required>
+              <option value="">Sélectionner</option>
+              <option>Homme</option>
+              <option>Femme</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Numéro WhatsApp <span class="req">*</span></label>
+            <input type="tel" name="whatsapp" placeholder="+225 ..." required />
+          </div>
+          <div class="field">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" required />
+          </div>
+          <div class="field">
+            <label>Commune représentée <span class="req">*</span></label>
+            <select name="commune" required>
+              <option value="">Sélectionner</option>
+              <option>Cocody</option>
+              <option>Bingerville</option>
+              <option>Yopougon</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Taille (cm) <span class="req">*</span></label>
+            <input type="number" name="taille" min="120" max="230" required />
+          </div>
+          <div class="field full">
+            <label>Club / Équipe actuelle (si applicable)</label>
+            <input type="text" name="club" />
+          </div>
+          <div class="field full">
+            <label>Mode de paiement préféré <span class="req">*</span></label>
+            <select name="paiement" required>
+              <option value="">Sélectionner</option>
+              <option>Wave CI</option>
+              <option>Orange Money</option>
+              <option>MTN Mobile Money</option>
+              <option>Espèces sur place</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">Valider mon inscription →</button>
+          <span class="form-note">// Frais : 5 000 FCFA · contact sous 48h pour le paiement</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- STAND FORM -->
+    <div class="form-panel" id="panel-stand">
+      <div class="form-intro">
+        <div>
+          <h3>Demande de Stand</h3>
+          <p>Marques, créateurs, commerçants locaux : présentez vos produits pendant l'événement. Idéal pour le streetwear, la food, les boissons, les accessoires, les services jeunesse. Visibilité sur la durée de l'événement.</p>
+        </div>
+        <div class="price-tag">
+          <div class="price">Sur devis</div>
+          <div class="unit">Selon taille &amp; type</div>
+        </div>
+      </div>
+
+      <div class="success-msg" id="success-stand">
+        <div class="title">✓ Demande de stand reçue.</div>
+        <p>Le pôle Partenariat d'ALS Events Group revient vers vous sous 72h avec une proposition adaptée à votre besoin.</p>
+      </div>
+
+      <form id="form-stand">
+        <div class="form-grid">
+          <div class="field">
+            <label>Nom de l'entreprise / marque <span class="req">*</span></label>
+            <input type="text" name="entreprise" required />
+          </div>
+          <div class="field">
+            <label>Personne de contact <span class="req">*</span></label>
+            <input type="text" name="contact" required />
+          </div>
+          <div class="field">
+            <label>Email pro <span class="req">*</span></label>
+            <input type="email" name="email" required />
+          </div>
+          <div class="field">
+            <label>Téléphone / WhatsApp <span class="req">*</span></label>
+            <input type="tel" name="whatsapp" required />
+          </div>
+          <div class="field">
+            <label>Type d'activité <span class="req">*</span></label>
+            <select name="type" required>
+              <option value="">Sélectionner</option>
+              <option>Streetwear / Mode</option>
+              <option>Food &amp; Boissons</option>
+              <option>Cosmétique / Beauté</option>
+              <option>Accessoires sportifs</option>
+              <option>Services digitaux / Telco</option>
+              <option>Média / Production</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Taille de stand souhaitée <span class="req">*</span></label>
+            <select name="taille" required>
+              <option value="">Sélectionner</option>
+              <option>Petit (2x2m)</option>
+              <option>Standard (3x3m)</option>
+              <option>Grand (5x5m)</option>
+              <option>Activation / espace personnalisé</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Étape(s) souhaitée(s) <span class="req">*</span></label>
+            <select name="etapes" required>
+              <option value="">Sélectionner</option>
+              <option>Grande Finale uniquement</option>
+              <option>Foot Day + Basket Day</option>
+              <option>Toutes les étapes (DDC + Days + Finale)</option>
+              <option>À discuter</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Site web / Instagram</label>
+            <input type="text" name="site" placeholder="@compte ou URL" />
+          </div>
+          <div class="field full">
+            <label>Présentez votre marque &amp; ce que vous proposerez sur place</label>
+            <textarea name="presentation" rows="4"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">Envoyer ma demande →</button>
+          <span class="form-note">// Réponse sous 72h par le pôle Partenariat</span>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- FINALE / TICKETS -->
+<section id="finale">
+  <div class="finale-content">
+    <div class="section-num" style="justify-content:center;text-align:center">05 — Grande Finale</div>
+    <h2 class="finale-title">
+      Centre <br />
+      <span class="accent">Ivoiro-Coréen.</span>
+    </h2>
+
+    <div class="finale-meta">
+      <div class="finale-meta-block">
+        <div class="label">Lieu</div>
+        <div class="value">Centre Sportif Ivoiro-Coréen</div>
+      </div>
+      <div class="finale-meta-block">
+        <div class="label">Capacité</div>
+        <div class="value">2 000 — 3 000 places</div>
+      </div>
+      <div class="finale-meta-block">
+        <div class="label">Date</div>
+        <div class="value">Août 2026</div>
+      </div>
+    </div>
+
+    <p style="max-width:600px;margin:0 auto 20px;opacity:0.8;font-size:16px;line-height:1.7;">
+      La billetterie spectateurs pour la Grande Finale est gérée en ligne sur <strong style="color:var(--electric)">Tikerama</strong>. Tickets à venir.
+    </p>
+
+    <a href="https://tikerama.com" target="_blank" rel="noopener" class="tikerama-btn">
+      Acheter sur Tikerama <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">W·BABI <span style="color:var(--electric)">EVENT</span></div>
+      <p>1V1 BABI EVENT — Édition 02. Une production ALS Events Group. Abidjan, Côte d'Ivoire.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Événement</h4>
+      <ul>
+        <li><a href="#concept">Concept</a></li>
+        <li><a href="#format">Format</a></li>
+        <li><a href="#communes">Communes</a></li>
+        <li><a href="#finale">Grande Finale</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Participer</h4>
+      <ul>
+        <li><a href="#inscriptions">Draft des Communes</a></li>
+        <li><a href="#inscriptions">Foot Day</a></li>
+        <li><a href="#inscriptions">Basket Day</a></li>
+        <li><a href="#inscriptions">Demande de stand</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>ALS Events Group</li>
+        <li>partenariat@alsevents.ci</li>
+        <li>WhatsApp Pôle Partenariat</li>
+        <li>Instagram &amp; TikTok</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ALS Events Group · 1V1 BABI EVENT</span>
+    <span>Fais Toi Bognan.</span>
+  </div>
+</footer>
+
+<script>
+  // ═══════════════ TABS ═══════════════
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.form-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + target).classList.add('active');
+    });
+  });
+
+  // ═══════════════ FORM SUBMISSION ═══════════════
+  // Uses window.storage for persistence — replace with real Supabase calls in production
+
+  const forms = [
+    { id: 'form-draft', table: 'inscriptions:draft', success: 'success-draft' },
+    { id: 'form-foot', table: 'inscriptions:foot', success: 'success-foot' },
+    { id: 'form-basket', table: 'inscriptions:basket', success: 'success-basket' },
+    { id: 'form-stand', table: 'inscriptions:stand', success: 'success-stand' },
+  ];
+
+  forms.forEach(({ id, table, success }) => {
+    const form = document.getElementById(id);
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('.submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi...';
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.submittedAt = new Date().toISOString();
+      data.id = 'sub_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+
+      try {
+        if (window.storage && window.storage.set) {
+          await window.storage.set(`${table}:${data.id}`, JSON.stringify(data), true);
+        } else {
+          // Fallback for local preview
+          console.log('Submission (no storage available):', data);
+        }
+
+        document.getElementById(success).classList.add('show');
+        form.reset();
+        submitBtn.textContent = 'Validé ✓';
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = id.includes('stand') ? 'Envoyer ma demande →' : 'Valider mon inscription →';
+        }, 3000);
+        document.getElementById(success).scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        console.error(err);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Réessayer';
+        alert('Une erreur est survenue. Réessaye dans un instant.');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
